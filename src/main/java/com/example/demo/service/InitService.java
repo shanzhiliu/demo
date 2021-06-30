@@ -16,10 +16,12 @@ public class InitService {
     @Value("${count}")
     private Long count;
 
+    @Value("${host}")
+    private String host;
+
     @PostConstruct
     public void preTest(){
-        Jedis jedis = RedisUtil.getConnetPool();
-
+        Jedis jedis = RedisUtil.getConnetPool(host);
 
         long start = System.currentTimeMillis();
 
