@@ -4,6 +4,9 @@ import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RedisUtil {
 
     public static Jedis  getConnet(){
@@ -19,5 +22,12 @@ public class RedisUtil {
         JedisPool pool = new JedisPool(config, host, 6379, 20000);
         Jedis jedis = pool.getResource();
         return jedis;
+    }
+
+    public static void main(String[] args) {
+        List<String> list = new ArrayList<>();
+        String s = list.get(0);
+
+        System.out.println(s);
     }
 }

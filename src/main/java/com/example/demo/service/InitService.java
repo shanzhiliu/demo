@@ -55,7 +55,7 @@ public class InitService {
             String key = "key" + i;
             String value = "";
             List<String> test1 = jedis.lrange("test1", i, i + 1);
-            if(test1 != null) {
+            if(test1 != null && test1.size() > 0 ){
                 String key1 = test1.get(0);
                 String test = jedis.hget("test", key1);
 
