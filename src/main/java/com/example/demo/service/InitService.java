@@ -23,9 +23,11 @@ public class InitService {
     public void preTest(){
         Jedis jedis = RedisUtil.getConnetPool(host);
 
+//        删除数据
+        jedis.del("test");
+        jedis.del("test1");
+
         long start = System.currentTimeMillis();
-
-
         for (long i = 0; i < count; i++) {
 
             String key = "key" + i;
@@ -69,6 +71,9 @@ public class InitService {
         System.out.println("---遍历------共花费-----" + (end-start)/1000.0 + "---秒------");
 
 
+        //        删除数据
+        jedis.del("test");
+        jedis.del("test1");
 
         jedis.close();
 
